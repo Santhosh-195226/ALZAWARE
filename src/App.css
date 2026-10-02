@@ -1,0 +1,307 @@
+/* How Alzaware Works section */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  margin-top: 64px;
+}
+
+.step-card {
+  text-align: center;
+  position: relative;
+}
+
+.step-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--secondary-mint);
+  color: var(--primary-teal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-size: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover .step-icon {
+  transform: scale(1.1);
+  background: var(--primary-teal);
+  color: var(--white);
+}
+
+.step-number {
+  position: absolute;
+  top: -10px;
+  right: calc(50% - 40px);
+  background: var(--accent-purple);
+  color: var(--white);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Features */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--border-radius-md);
+  background: rgba(31, 163, 163, 0.1);
+  color: var(--primary-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Upload Interface */
+.upload-module {
+  border: 2px dashed rgba(31, 163, 163, 0.3);
+  border-radius: var(--border-radius-lg);
+  padding: 64px 32px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.upload-module:hover,
+.upload-module.drag-active {
+  background: rgba(217, 243, 242, 0.5);
+  border-color: var(--primary-teal);
+}
+
+.upload-icon {
+  color: var(--primary-teal);
+  margin-bottom: 24px;
+}
+
+/* Dashboard Cards */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.dashboard-card {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.col-span-12 {
+  grid-column: span 12;
+}
+
+.col-span-8 {
+  grid-column: span 8;
+}
+
+.col-span-6 {
+  grid-column: span 6;
+}
+
+.col-span-4 {
+  grid-column: span 4;
+}
+
+.col-span-3 {
+  grid-column: span 3;
+}
+
+@media (max-width: 992px) {
+
+  .col-span-8,
+  .col-span-6,
+  .col-span-4,
+  .col-span-3 {
+    grid-column: span 12;
+  }
+
+  .hero .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+}
+
+/* Circular Gauge Chart */
+.gauge-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.gauge-svg {
+  transform: rotate(-90deg);
+}
+
+.gauge-bg {
+  fill: none;
+  stroke: var(--secondary-gray);
+  stroke-width: 12;
+}
+
+.gauge-progress {
+  fill: none;
+  stroke: var(--accent-amber);
+  stroke-width: 12;
+  stroke-dasharray: 502;
+  stroke-dashoffset: 200;
+  /* Adjust dynamically */
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s ease-out;
+}
+
+.gauge-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.gauge-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+}
+
+/* Cognitive Test Modal */
+.test-interface {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 32px;
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Processing Overlay */
+.processing-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 31, 59, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  z-index: 2000;
+}
+
+.loader {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-left-color: var(--primary-teal);
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 24px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* CTA */
+.cta-section {
+  background: var(--gradient-ai);
+  color: var(--white);
+  text-align: center;
+  padding: 100px 0;
+  border-radius: var(--border-radius-lg);
+  margin: 80px 24px;
+}
+
+/* Footer */
+footer {
+  background: var(--primary-navy);
+  color: var(--white);
+  padding: 80px 0 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: var(--white);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 8px;
+}
+
+.tab {
+  padding: 8px 16px;
+  font-weight: 600;
+  color: var(--primary-navy);
+  opacity: 0.6;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  font-family: var(--font-heading);
+}
+
+.tab.active {
+  opacity: 1;
+  color: var(--primary-teal);
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-teal);
+}
