@@ -4,7 +4,8 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [userType, setUserType] = useState(null); // 'patient' or 'doctor'
+  const [userType, setUserType] = useState(null);
+  const [loading, setLoading] = useState(true); // 'patient' or 'doctor'
 
   useEffect(() => {
     const savedUser = localStorage.getItem('alzaware_user');
@@ -13,6 +14,7 @@ export const AuthProvider = ({ children }) => {
       setUser(JSON.parse(savedUser));
       setUserType(savedType);
     }
+    setLoading(false);
   }, []);
 
   const login = (userData, type) => {
@@ -30,7 +32,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, userType, login, logout }}>
+    <AuthContext.Provider value={{ user, userType, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

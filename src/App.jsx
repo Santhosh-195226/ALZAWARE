@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import HowItWorks from './components/HowItWorks';
@@ -19,15 +19,23 @@ import './App.css';
 
 // Protected Route for Patient Hub
 const PatientRoute = ({ children }) => {
-  const { user, userType } = useAuth();
-  if (!user || userType !== 'patient') return <Navigate to="/login" />;
+  const { user, userType, loading } = useAuth();
+
+  if (loading) return null;
+
+  if (!user || userType !== 'patient') return <Navigate to="/" replace />;
+
   return children;
 };
 
 // Protected Route for Doctor Portal
 const DoctorRoute = ({ children }) => {
-  const { user, userType } = useAuth();
-  if (!user || userType !== 'doctor') return <Navigate to="/doctor/login" />;
+  const { user, userType, loading } = useAuth();
+
+  if (loading) return null;
+
+  if (!user || userType !== 'doctor') return <Navigate to="/" replace />;
+
   return children;
 };
 
