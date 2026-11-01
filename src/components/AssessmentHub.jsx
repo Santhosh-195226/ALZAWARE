@@ -7,6 +7,7 @@ import ResultDashboard from './ResultDashboard';
 import { ShieldCheck, Activity, Target, ActivitySquare } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { usePatients } from '../context/PatientContext';
+import ModelAssessment from './ModelAssessment';
 
 export default function AssessmentHub() {
     const { user } = useAuth();
@@ -94,8 +95,15 @@ export default function AssessmentHub() {
                             </div>
                         </div>
 
-                        <button className="btn btn-primary" onClick={() => setStep('lifestyle')} style={{ fontSize: '1.2rem', padding: '16px 32px' }}>
+                        <button className="btn btn-primary" onClick={() => setStep('lifestyle')} style={{ fontSize: '1.1rem', padding: '14px 28px', marginRight: '10px', marginTop: '16px' }}>
                             Start Assessment Protocol
+                        </button>
+                        <button
+                            className="btn btn-primary"
+                            onClick={() => setStep('model')}
+                            style={{ fontSize: '1.1rem', padding: '14px 28px', marginTop: '16px' }}
+                            >
+                            Run Research AI Model
                         </button>
                     </div>
                 )}
@@ -104,6 +112,7 @@ export default function AssessmentHub() {
                 {step === 'cognitive' && <CognitiveMicroTests chronologicalAge={results.lifestyleData?.age || 50} onComplete={handleCognitiveComplete} />}
                 {step === 'eeg' && <EegUploadSim onComplete={handleEegComplete} />}
                 {step === 'mri' && <MriUploadSim onComplete={handleMriComplete} />}
+                {step === 'model' && <ModelAssessment />}
                 {step === 'results' && <ResultDashboard results={results} />}
             </div>
         </section>
