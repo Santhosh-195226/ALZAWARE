@@ -6,7 +6,7 @@ ALZAWARE is an AI-driven cognitive health monitoring system designed to support 
 
 The system combines lifestyle information and cognitive micro-assessments to estimate **Cognitive Age** and monitor changes over time. When increased risk or significant deviation is identified, the assessment can progress toward more detailed evaluation through **MMSE, EEG, and MRI**.
 
-> **Current status:** This repository contains the active ALZAWARE software prototype and is under continuous development. Some AI and medical-analysis modules currently use prototype or simulated components and will be progressively replaced or expanded with validated implementations.
+> **Current status:** ALZAWARE is under active development. The repository contains a frontend prototype, alongside a FastAPI backend and machine learning implementation maintained in a separate development branch. Certain advanced medical-analysis modules remain under development.
 
 ---
 
@@ -106,6 +106,12 @@ flowchart LR
 
 ## Technology Stack
 
+### Implementation Branches
+
+* main – Frontend prototype and patient/doctor interface.
+* feature/fastapi-ml-prototype – FastAPI backend, REST API endpoints, and machine learning model integration.
+https://github.com/Santhosh-195226/ALZAWARE/tree/feature/fastapi-ml-prototype
+
 ### Frontend
 
 * React
@@ -117,11 +123,14 @@ flowchart LR
 
 * Component-based React architecture
 * Context-based application state
-* Modular service layer
-* AI inference layer
-* Prototype backend interfaces
+* FastAPI backend and REST API integration
+* Machine learning inference layer
 
 ### AI / Machine Learning
+
+* XGBoost-based classification and regression models
+* OASIS-2 dataset for model development and evaluation
+* FastAPI-based model inference endpoints
 
 The project architecture is being developed to support AI/ML components for:
 
